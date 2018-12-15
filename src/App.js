@@ -1,6 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import Counter from './Counter'
-const TextComponent = React.lazy(() => import('./AsyncText'))
+import AsyncText from './AsyncText'
 
 class App extends Component {
   render() {
@@ -8,7 +8,7 @@ class App extends Component {
       <>
         <Counter />
         <Suspense fallback={<div>Loading...</div>}>
-          <TextComponent />
+          <AsyncText text="Hello!" ms={3000} />
         </Suspense>
       </>
     );

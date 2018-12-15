@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "next",
+    "react-cache": "^2.0.0-alpha.1",
     "react-dom": "next",
     "react-scripts": "2.1.1"
   },
