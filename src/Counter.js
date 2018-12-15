@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useReducer, useEffect } from 'react'
+import { reducer, initialState } from './reducers/counter'
+import { counterActionCreator } from './actions/counter'
 
 const Counter = () => {
-  const [count, setCount] = useState(0)
+  const [state, dispatch] = useReducer(reducer, initialState)
+  const actions = counterActionCreator(dispatch)
 
-  useEffect(() => { document.title = `Count: ${count}` })
+  useEffect(() => { document.title = `🔢 ${state.count}` })
 
   return (
     <div>
-      <p>Count: {count}</p>
-      <button onClick={ () => setCount(0) }>Reset</button>
-      <button onClick={ () => setCount(count - 1) }>-</button>
-      <button onClick={ () => setCount(count + 1) }>+</button>
+      <p>Count: {state.count}</p>
+      <button onClick={actions.reset}>Reset</button>
+      <button onClick={actions.decrement}>-</button>
+      <button onClick={actions.increment}>+</button>
     </div>
   )
 }
