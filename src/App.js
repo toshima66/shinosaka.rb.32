@@ -9,6 +9,7 @@ class App extends Component {
         <Counter />
         <Suspense fallback={<div>Loading...</div>}>
           <AsyncText text="Hello!" ms={3000} />
+          <AsyncText text="Hello! 2" ms={6000} />
         </Suspense>
       </>
     );
